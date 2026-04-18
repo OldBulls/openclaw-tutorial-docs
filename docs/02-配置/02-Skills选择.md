@@ -5,6 +5,7 @@ title: 02-配置 · 02 Skills 选择
 # 02-配置 · 02 Skills 选择
 
 > 预计阅读：10 分钟
+> 适用版本：OpenClaw 2026.4.14+ · 最后审核：2026-04-18
 > 本章回答：**OpenClaw 几十个 skill，我到底装哪些？哪些必装？哪些可有可无？**
 
 ---
@@ -179,7 +180,7 @@ title: 02-配置 · 02 Skills 选择
 
 | skill | 为什么不装 |
 |---|---|
-| 任何"一键同步所有配置"类 | 供应链风险，见 05-排障/00 的"安全红线" |
+| 任何"一键同步所有配置"类 | 供应链风险，见 [05-排障/00-常见问题](../05-排障/00-常见问题.md) 的"安全红线" |
 | 太新（< 30 天）且只有 1 个 maintainer 的 skill | 没经过充分测试，容易突然断维护 |
 | 和 `memory-lancedb-pro` 功能重叠的 | 两个记忆 skill 会互相干扰语义库 |
 
@@ -253,7 +254,7 @@ openclaw skills install <skill-name>
 # 4. 重启 gateway
 openclaw gateway restart
 
-# 5. 等 OK（见 05-排障/00 第 2 节）
+# 5. 等 OK（见 ../05-排障/00-常见问题.md 第 2 节）
 until bash ~/.openclaw/scripts/check-feishu-gateway-health.sh --summary 2>/dev/null | grep -q "^OK:"; do
   sleep 2
 done
@@ -328,3 +329,7 @@ openclaw skills update --all
 
 > **本章准确性保证**
 > 推荐 skill 清单基于作者 `~/.openclaw/skills/` 的真实安装集（2026-04-17，47 个 skill）。plugin slots / entries / installs 配置来自 `~/.openclaw/openclaw.json` 的真实 plugins 节。embedding / rerank 参数为生产环境实测可用组合。
+
+---
+
+**导航**：[← 记忆系统](./01-记忆系统.md) · [📖 目录](../00-先读我.md) · [→ 飞书深度配置](./03-飞书深度配置.md)

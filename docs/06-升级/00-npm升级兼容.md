@@ -5,6 +5,7 @@ title: 06-升级 · 00 npm 升级兼容
 # 06-升级 · 00 npm 升级兼容
 
 > 预计阅读：12 分钟
+> 适用版本：OpenClaw 2026.4.14+ · 最后审核：2026-04-18
 > 本章回答：**升级 OpenClaw 之后为什么总出毛病，以及怎么把升级做成流水线**
 
 ---
@@ -237,3 +238,7 @@ done
 
 > **本章准确性保证**
 > hotfix target 清单直接来自 `~/.openclaw/scripts/apply-openclaw-cli-hotfixes.mjs` 真实代码（2026-04-17 版本，15 个 targets）。回滚 / 回归脚本路径已对 `~/.openclaw/scripts/` 核对。分类与占比为作者主观归纳，可能因用户场景不同而不同。
+
+---
+
+**导航**：[← 诊断流程](../05-排障/01-诊断流程.md) · [📖 目录](../00-先读我.md) · [→ breaking-change-应对](./01-breaking-change-应对.md)
