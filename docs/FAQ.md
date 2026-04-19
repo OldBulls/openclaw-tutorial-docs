@@ -2,12 +2,18 @@
 title: FAQ · 高频问题速查
 ---
 
-# FAQ · 高频问题速查
-
 > 这里只放**最高频**的 20 个问题。详细排障流程看 [05-排障/](./05-排障/00-常见问题.md)。
 > 提 issue 前先翻这里 + 用 ⌘F 搜关键词。
 
 **导航**：[📖 教程目录](./00-先读我.md) · [05-排障 · 常见问题（详版）](./05-排障/00-常见问题.md) · [05-排障 · 诊断流程](./05-排障/01-诊断流程.md)
+
+## 快速跳转
+
+- [🚀 入门 / 安装](#-入门--安装) — Q1–Q5
+- [🧠 记忆系统](#-记忆系统) — Q6–Q9
+- [🤝 多 Agent](#-多-agent) — Q10–Q13
+- [🚪 飞书 / 渠道](#-飞书--渠道) — Q14–Q16
+- [🔧 升级 / 运维](#-升级--运维) — Q17–Q20
 
 ---
 
@@ -96,7 +102,7 @@ until openclaw gateway status | grep -q '^OK:'; do sleep 2; done
 - 升级前：必备份，详见 [04-运维/02-升级流程](./04-运维/02-升级流程.md)
 
 ### Q20：教程跟着 OpenClaw 升级吗？
-有 [GitHub Action 自动监控](../.github/workflows/upstream-monitor.yml)，上游有新稳定版会自动开 issue。处理流程在 [meta/RELEASE_CHECKLIST.md](../meta/RELEASE_CHECKLIST.md)。
+跟。上游有新稳定版会在 3 个工作日内适配完并同步到镜像；变更记录见 [06-升级](./06-升级/00-npm升级兼容.md)。
 
 ---
 
@@ -104,7 +110,7 @@ until openclaw gateway status | grep -q '^OK:'; do sleep 2; done
 
 1. [05-排障/00-常见问题（详版）](./05-排障/00-常见问题.md) —— 完整问题树
 2. [05-排障/01-诊断流程](./05-排障/01-诊断流程.md) —— 系统性排障方法
-3. [开 issue](https://github.com/OldBulls/openclaw-tutorial/issues/new/choose) —— 描述 + 命令输出，越具体越快
+3. [开 issue](https://github.com/OldBulls/openclaw-tutorial-docs/issues/new) —— 描述 + 命令输出，越具体越快
 
 ---
 

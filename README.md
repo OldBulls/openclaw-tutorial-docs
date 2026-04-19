@@ -1,10 +1,10 @@
 # OpenClaw 实战教程 · 22 章公开版
 
 > 22 章实战教程的公开镜像。**只读 · 自动同步**。
-> 想提 issue / PR 请去 [主仓](https://github.com/OldBulls/openclaw-tutorial)。
+> 勘误 / 内容反馈：本仓 [issues](https://github.com/OldBulls/openclaw-tutorial-docs/issues)。PR 会被下次同步覆盖，请改用 issue。
 
 - 适用版本：OpenClaw 2026.4.14+
-- 最后同步：2026-04-18
+- 最后同步：2026-04-19
 - License：CC BY-NC-ND 4.0
 
 ## 章节地图
