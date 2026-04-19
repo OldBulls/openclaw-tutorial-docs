@@ -29,7 +29,7 @@ title: FAQ · 高频问题速查
 要 Node 22.10+。`nvm install 22 && nvm use 22` 后重装。
 
 ### Q4：教程哪些章节适用我的版本？
-看每章顶部的「适用版本」字段。当前 baseline 是 OpenClaw 2026.4.14，见 [meta/UPSTREAM_VERSION](../meta/UPSTREAM_VERSION)。
+看每章顶部的「适用版本」字段。当前 baseline 是 OpenClaw 2026.4.14，见 [先读我的版本说明](./00-先读我.md#版本说明)。
 
 ### Q5：付费档位 2 卖什么？
 可直接 install 的模板包（22 章配套的 SOUL / AGENTS / 维护脚本骨架）+ 1v1 答疑。详见 [chengzhen.vip](https://chengzhen.vip)。
