@@ -4,7 +4,7 @@
 > 勘误 / 内容反馈：本仓 [issues](https://github.com/OldBulls/openclaw-tutorial-docs/issues)。PR 会被下次同步覆盖，请改用 issue。
 
 - 适用版本：OpenClaw 2026.4.14+
-- 最后同步：2026-04-19
+- 最后同步：2026-04-20
 - License：CC BY-NC-ND 4.0
 
 ## 章节地图
