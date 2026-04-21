@@ -93,16 +93,17 @@ title: 02-配置 · 02 Skills 选择
 ```json
 "retrieval": {
   "mode": "hybrid",
+  "candidatePoolSize": 12,
   "vectorWeight": 0.7,
   "bm25Weight": 0.3,
-  "rerank": "cross-encoder",
-  "rerankProvider": "siliconflow",
-  "rerankEndpoint": "https://api.siliconflow.com/v1/rerank",
-  "rerankModel": "Qwen/Qwen3-Reranker-0.6B"
+  "minScore": 0.55,
+  "hardMinScore": 0.6,
+  "filterNoise": true,
+  "rerank": "lightweight"
 }
 ```
 
-> SiliconFlow 的 embedding + rerank 组合**比 OpenAI 便宜一个数量级**，中文场景精度相当。如果你短期不改英文业务，直接抄。
+> 生产环境默认建议：`embedding` 继续走 SiliconFlow，`rerank` 先用 `lightweight`。这样能避开外部 rerank 的额外网络波动，稳定性通常比远程 cross-encoder 更好。如果后面你确认链路很稳，再单独把 `retrieval.rerank` 升到 `cross-encoder`。
 
 ---
 
