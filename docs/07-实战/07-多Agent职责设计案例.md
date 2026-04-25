@@ -1,5 +1,5 @@
 ---
-title: 多 Agent 职责设计案例
+title: 07-实战 · 多 Agent 职责设计案例
 ---
 
 > 目标：用几个可复制的案例说明 OpenClaw 多 agent 应该怎么拆。重点是职责边界，不是把所有 prompt 都塞进免费文档。

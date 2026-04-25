@@ -1,5 +1,5 @@
 ---
-title: OpenClaw 日常运维 SOP
+title: 07-实战 · OpenClaw 日常运维 SOP
 ---
 
 > 目标：让 OpenClaw 长期稳定运行。不是出问题才看日志，而是每天、每周、升级前后都有固定检查动作。

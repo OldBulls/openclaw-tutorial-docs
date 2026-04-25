@@ -1,5 +1,5 @@
 ---
-title: Gateway 消息链路图解
+title: 07-实战 · Gateway 消息链路图解
 ---
 
 > 目标：理解一条消息从飞书或 CLI 进入 OpenClaw 后，经过哪些模块、写哪些日志、哪里最容易出错。
