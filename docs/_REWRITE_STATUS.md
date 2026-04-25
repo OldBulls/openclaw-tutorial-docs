@@ -84,20 +84,20 @@
 - 入口显示与后端权限已拆成两组开关：
   - `COMMERCE_AUTH_ENABLED` / `COMMERCE_PAYMENTS_ENABLED`
   - `PUBLIC_COMMERCE_AUTH_ENABLED` / `PUBLIC_COMMERCE_PAYMENTS_ENABLED`
+- 当前生产主支付链已切到 `zpay`，Creem 代码路径保留为备用集成
 
 ---
 
-## 仍然故意保留为“待实际执行”的事项
+## 当前仍依赖环境侧维护的事项
 
-这些不是“没做代码”，而是**等真实上线当天执行**：
+这些不是“代码未完成”，而是**环境变量、第三方平台和运营侧的长期维护项**：
 
-- 拿到 Creem 邀请码
-- 在 Cloudflare Pages 填真实 `CREEM_*`
-- 在 Cloudflare Pages 填真实 `LATEST_BUNDLE_*`
-- 打开认证 / 支付 / 入口显示开关
-- 跑首单真实支付闭环验证
+- Cloudflare Pages 中的 `LATEST_BUNDLE_*` 与站内版本保持同步
+- `downloads.chengzhen.vip` 下的 zip / manifest / `.sig` / 公钥持续可访问
+- 站点支付环境变量与当前主链（`zpay`）保持一致
+- 如未来切回 Creem，再补齐 `CREEM_*` 并重新验证 webhook 闭环
 
-也就是说，当前剩余工作主要是**环境变量与实操执行**，不是继续补仓库骨架。
+也就是说，当前剩余工作主要是**环境与运营维护**，不是继续补仓库骨架。
 
 ---
 
@@ -110,7 +110,7 @@
 | `guided-install/` | `🟢` | install/update/rollback 与状态协议已通 |
 | `meta/` 商业化文档 | `🟢` | 上线、交付、售后、更新通知都已补齐 |
 | `site/` 站点骨架 | `🟢` | 买家中心、支付闭环、入口开关已就位 |
-| `真实支付开通` | `⏳` | 等 Creem 邀请码与真实环境变量 |
+| `真实支付开通` | `🟢` | 当前主链以 `zpay` 为准，站点支付与买家中心已打通 |
 
 ---
 
