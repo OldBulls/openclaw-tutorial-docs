@@ -33,7 +33,7 @@ description: OpenClaw 实战手册 20 个最高频问题速查，涵盖安装、
 看每章顶部的「适用版本」字段。当前 baseline 是 OpenClaw 2026.4.14，见 [先读我的版本说明](./00-先读我.md#版本说明)。
 
 ### Q5：付费档位 2 卖什么？
-可直接 install 的模板包（37 章公开教程配套的 SOUL / AGENTS / 维护脚本骨架）+ 1v1 答疑。详见 [chengzhen.vip](https://chengzhen.vip)。
+可直接 install 的模板包（42 篇公开教程配套的 SOUL / AGENTS / 维护脚本骨架）+ 1v1 答疑。详见 [chengzhen.vip](https://chengzhen.vip)。
 
 ---
 
