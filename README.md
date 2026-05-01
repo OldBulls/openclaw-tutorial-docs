@@ -3,8 +3,8 @@
 > 42 篇实战教程的公开镜像。**只读 · 自动同步**。
 > 勘误 / 内容反馈：本仓 [issues](https://github.com/OldBulls/openclaw-tutorial-docs/issues)。PR 会被下次同步覆盖，请改用 issue。
 
-- 适用版本：OpenClaw 2026.4.26+
-- 最后同步：2026-04-28
+- 适用版本：OpenClaw 2026.4.24+
+- 最后同步：2026-05-01
 - License：CC BY-NC-ND 4.0
 
 ## 章节地图
