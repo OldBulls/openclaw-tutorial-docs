@@ -2,8 +2,8 @@
 title: 06-升级 · 02 安装包签名校验与 latest.json
 ---
 
-> 预计阅读：9 分钟
-> 适用版本：OpenClaw 2026.4.14+ · 最后审核：2026-04-25
+> 预计阅读：11 分钟
+> 适用版本：OpenClaw 2026.4.24 稳定基线 · 最后审核：2026-05-02
 > 前置：[00-npm升级兼容](./00-npm升级兼容.md) / [04-运维/02-升级流程](../04-运维/02-升级流程.md)
 > 目标：看懂 OpenClaw 安装包更新链里的 `latest.json`、`.sig` 和公钥各自负责什么，知道买家侧怎么做最小签名校验
 
@@ -194,9 +194,9 @@ bash ~/.openclaw/scripts/verify-bundle-signature.sh --file FILE --strict
 
 如果作者开启了签名链，买家侧现在通常会做两层自动校验：
 
-1. `check-bundle-update.py`  
+1. `check-bundle-update.py`
    优先校验 `latest.json.sig`
-2. `approve-bundle-update.sh`  
+2. `approve-bundle-update.sh`
    下载 ZIP 后优先校验 `zip.sig`
 
 也就是说，公开文档现在建议的顺序是：
@@ -208,6 +208,41 @@ bash ~/.openclaw/scripts/verify-bundle-signature.sh --file FILE --strict
 ```
 
 而不是跳过 `latest.json` 直接信 ZIP。
+
+---
+
+## 在线更新为什么拆成 `review` 和 `approve`
+
+当前买家端更新链建议分两步：
+
+```bash
+# 先查新、验元数据、生成报告
+make review-update
+
+# 人确认后再下载并安装指定版本
+make approve-update VERSION=vX.Y.Z
+```
+
+这么拆不是为了麻烦，而是为了把“发现新版本”和“真的覆盖本地文件”分开。`review` 阶段应该回答：
+
+- `latest.json` 能不能下载
+- `latest.json.sig` 是否通过
+- 版本号、OpenClaw upstream、摘要是否可信
+- `signatureRequired=true` 时，本地有没有公钥
+- 是否存在必须先人工处理的阻断项
+
+只有这些都过了，`approve` 才应该继续下载 ZIP、验 ZIP 签名、验 SHA256、解包和执行更新。
+
+### `blocked` 状态必须硬停
+
+如果检查结果进入 `blocked`，后续安装动作应该停止。典型原因包括：
+
+- `signatureRequired=true`，但 `latest.json.sig` 缺失或验不过
+- 公钥不存在，或公钥来源不可信
+- ZIP 地址和 manifest 地址缺失
+- `latest.json` 结构不符合当前脚本预期
+
+这时不要改脚本绕过，也不要手工把 ZIP 解压覆盖。正确动作是重新下载元数据，仍失败就打支持包。
 
 ---
 
@@ -233,6 +268,26 @@ bash ~/.openclaw/scripts/verify-bundle-signature.sh \
 
 ---
 
+## 当前稳定交付基线怎么读
+
+以当前稳定链路为例，`latest.json` 会声明：
+
+```text
+bundle_version     = v1.0.10
+openclaw_upstream  = 2026.4.24
+signature_required = true
+```
+
+这里要注意两件事：
+
+1. 安装包版本和 OpenClaw upstream 版本不是一回事
+   `v1.0.10` 是模板安装包版本，`2026.4.24` 是它验证过的 OpenClaw runtime 基线。
+
+2. 不要因为 npm 上有更新就自动越过基线
+   如果模板的插件、memory-lancedb-pro 补丁、飞书链路和 gateway 修复都按 `2026.4.24` 验证，就应该先跟着安装包基线走。要升到更高版本，先按 [CLI 与 Gateway 版本统一](./03-CLI与Gateway版本统一.md) 和 [升级流程](../04-运维/02-升级流程.md) 做兼容性评估。
+
+---
+
 ## 什么时候要特别警惕
 
 下面这些情况都应该停下来：
@@ -242,6 +297,7 @@ bash ~/.openclaw/scripts/verify-bundle-signature.sh \
 3. ZIP 的 SHA256 对得上，但 `.sig` 验不过
 4. 公钥来源和作者给你的安装包来源不一致
 5. 你手工改过 `latest.json` 后还想继续拿它去验签
+6. `review-update` 已经标记 `blocked`，但你还想直接运行旧版覆盖式更新
 
 这几种都不是“小告警”，而是应该先阻断更新。
 
