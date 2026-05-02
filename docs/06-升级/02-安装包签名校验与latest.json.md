@@ -273,7 +273,7 @@ bash ~/.openclaw/scripts/verify-bundle-signature.sh \
 以当前稳定链路为例，`latest.json` 会声明：
 
 ```text
-bundle_version     = v1.0.10
+bundle_version     = v1.0.12
 openclaw_upstream  = 2026.4.24
 signature_required = true
 ```
@@ -281,7 +281,7 @@ signature_required = true
 这里要注意两件事：
 
 1. 安装包版本和 OpenClaw upstream 版本不是一回事
-   `v1.0.10` 是模板安装包版本，`2026.4.24` 是它验证过的 OpenClaw runtime 基线。
+   `v1.0.12` 是模板安装包版本，`2026.4.24` 是它验证过的 OpenClaw runtime 基线。
 
 2. 不要因为 npm 上有更新就自动越过基线
    如果模板的插件、memory-lancedb-pro 补丁、飞书链路和 gateway 修复都按 `2026.4.24` 验证，就应该先跟着安装包基线走。要升到更高版本，先按 [CLI 与 Gateway 版本统一](./03-CLI与Gateway版本统一.md) 和 [升级流程](../04-运维/02-升级流程.md) 做兼容性评估。
