@@ -3,7 +3,7 @@ title: 04-运维 · 07 LanceDB 4096 维迁移与重嵌入
 ---
 
 > 预计阅读：14 分钟
-> 适用版本：memory-lancedb-pro 1.1.0-beta.10 / OpenClaw 2026.4.14+
+> 适用版本：memory-lancedb-pro 1.1.0-beta.10 / OpenClaw 2026.4.24 稳定基线 · 最后审核：2026-05-02
 > 前置：[02-配置/01-记忆系统](../02-配置/01-记忆系统.md) / [04-运维/03-备份与恢复](./03-备份与恢复.md)
 > 本章回答：**把 embedding 从 1024 维切到 4096 维时，为什么会报 `Vector dimension mismatch`？怎么迁移旧库而不丢记忆？**
 

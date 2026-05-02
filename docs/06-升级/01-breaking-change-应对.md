@@ -3,7 +3,7 @@ title: 06-升级 · 01 breaking change 应对
 ---
 
 > 预计阅读：10 分钟
-> 适用版本：OpenClaw 2026.4.14+ · 最后审核：2026-04-18
+> 适用版本：OpenClaw 2026.4.24 稳定基线 · 最后审核：2026-05-02
 > 前置：[00-npm升级兼容](./00-npm升级兼容.md) / [04-运维/02-升级流程](../04-运维/02-升级流程.md)
 > 本章回答：**新版本有 breaking change 怎么办？什么时候升，什么时候跳过？被迫升怎么降低翻车概率？**
 
@@ -161,7 +161,7 @@ node ~/.openclaw/scripts/apply-openclaw-cli-hotfixes.mjs
 ```json
 {
   "dependencies": {
-    "openclaw": "2026.4.14"
+    "openclaw": "2026.4.24"
   }
 }
 ```
@@ -177,7 +177,7 @@ git clone 源码，切到最后一个能用的版本，自己 fork 一个。
 ```bash
 git clone https://github.com/__PLACEHOLDER_OPENCLAW_REPO__.git openclaw-fork
 cd openclaw-fork
-git checkout v2026.4.14
+git checkout v2026.4.24
 # 后续只合 upstream 的 bugfix，不合 breaking
 ```
 

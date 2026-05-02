@@ -3,12 +3,14 @@ title: 06-升级 · 00 npm 升级兼容
 ---
 
 > 预计阅读：12 分钟
-> 适用版本：OpenClaw 2026.4.14+ · 最后审核：2026-04-18
+> 适用版本：OpenClaw 2026.4.24 稳定基线 · 最后审核：2026-05-02
 > 本章回答：**升级 OpenClaw 之后为什么总出毛病，以及怎么把升级做成流水线**
 
 ---
 
 ## 升级为什么特别容易崩
+
+先定边界：如果你使用的是带安装器和本地补丁的模板，默认跟随模板基线，而不是直接追 `openclaw@latest`。当前稳定基线是 `2026.4.24`；更高版本需要先确认飞书链路、memory-lancedb-pro、本地补丁、gateway 服务脚本和买家更新链都兼容。
 
 OpenClaw 在快速迭代期。每次 `npm install -g openclaw` 可能带来：
 
@@ -89,7 +91,7 @@ openclaw --version > /tmp/openclaw-version-before.txt
 ### 步骤 2：升级
 
 ```bash
-npm install -g openclaw
+npm install -g openclaw@2026.4.24
 openclaw --version
 ```
 

@@ -106,7 +106,7 @@ until openclaw gateway status | grep -q '^OK:'; do sleep 2; done
 - 升级前：必备份，详见 [04-运维/02-升级流程](./04-运维/02-升级流程.md)
 
 ### Q21：教程跟着 OpenClaw 升级吗？
-跟。上游有新稳定版会在 3 个工作日内适配完并同步到镜像；变更记录见 [06-升级](./06-升级/00-npm升级兼容.md)。
+跟踪，但不盲升。上游有新版本会先做兼容性评估；只有 OpenClaw core、飞书链路、memory-lancedb-pro、本地补丁和买家安装链都验证通过，才会提升模板基线。当前稳定基线仍是 `2026.4.24`。
 
 ### Q22：Control UI 打不开，提示 assets not found 怎么办？
 先别反复重装。多数是 gateway 服务文件仍指向旧 nvm / npm 路径。执行：
