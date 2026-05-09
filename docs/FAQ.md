@@ -30,13 +30,13 @@ description: OpenClaw 实战手册高频问题速查，涵盖安装、升级、�
 要 Node 22.10+。`nvm install 22 && nvm use 22` 后重装。
 
 ### Q4：教程哪些章节适用我的版本？
-看每章顶部的「适用版本」字段。当前稳定基线是 OpenClaw 2026.4.24，见 [先读我的版本说明](./00-先读我.md#版本说明)。
+看每章顶部的「适用版本」字段。当前公开稳定安装包基线是 OpenClaw 2026.5.2，作者端已验证 2026.5.7，见 [先读我的版本说明](./00-先读我.md#版本说明)。
 
 ### Q5：付费档位 2 卖什么？
 可直接 install 的模板包（42 篇公开教程配套的 SOUL / AGENTS / 维护脚本骨架）+ 1v1 答疑。详见 [chengzhen.vip](https://chengzhen.vip)。
 
 ### Q6：为什么模板不直接跟 npm 最新 OpenClaw？
-因为模板不是只依赖 OpenClaw core，还依赖飞书插件、memory-lancedb-pro、本地补丁、gateway 服务脚本和买家安装链。当前稳定基线是 `2026.4.24`，要升更高版本先做兼容性评估。
+因为模板不是只依赖 OpenClaw core，还依赖飞书插件、memory-lancedb-pro、本地补丁、gateway 服务脚本和买家安装链。当前公开稳定安装包基线是 `2026.5.2`，作者端已验证 `2026.5.7`；买家端是否跟进仍以 `latest.json` 和新版安装包为准。
 
 ---
 
@@ -106,7 +106,7 @@ until openclaw gateway status | grep -q '^OK:'; do sleep 2; done
 - 升级前：必备份，详见 [04-运维/02-升级流程](./04-运维/02-升级流程.md)
 
 ### Q21：教程跟着 OpenClaw 升级吗？
-跟踪，但不盲升。上游有新版本会先做兼容性评估；只有 OpenClaw core、飞书链路、memory-lancedb-pro、本地补丁和买家安装链都验证通过，才会提升模板基线。当前稳定基线仍是 `2026.4.24`。
+跟踪，但不盲升。上游有新版本会先做兼容性评估；只有 OpenClaw core、飞书链路、memory-lancedb-pro、本地补丁和买家安装链都验证通过，才会提升模板基线。当前公开稳定安装包基线是 `2026.5.2`，作者端已验证 `2026.5.7`，但未发新版安装包前买家端仍按 `latest.json` 执行。
 
 ### Q22：Control UI 打不开，提示 assets not found 怎么办？
 先别反复重装。多数是 gateway 服务文件仍指向旧 nvm / npm 路径。执行：

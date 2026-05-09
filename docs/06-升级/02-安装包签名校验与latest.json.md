@@ -3,7 +3,7 @@ title: 06-升级 · 02 安装包签名校验与 latest.json
 ---
 
 > 预计阅读：11 分钟
-> 适用版本：OpenClaw 2026.4.24 稳定基线 · 最后审核：2026-05-02
+> 适用版本：公开稳定包 OpenClaw 2026.5.2；作者端已验证 2026.5.7 · 最后审核：2026-05-09
 > 前置：[00-npm升级兼容](./00-npm升级兼容.md) / [04-运维/02-升级流程](../04-运维/02-升级流程.md)
 > 目标：看懂 OpenClaw 安装包更新链里的 `latest.json`、`.sig` 和公钥各自负责什么，知道买家侧怎么做最小签名校验
 
@@ -273,18 +273,18 @@ bash ~/.openclaw/scripts/verify-bundle-signature.sh \
 以当前稳定链路为例，`latest.json` 会声明：
 
 ```text
-bundle_version     = v1.0.12
-openclaw_upstream  = 2026.4.24
+bundle_version     = v1.0.13
+openclaw_upstream  = 2026.5.2
 signature_required = true
 ```
 
 这里要注意两件事：
 
 1. 安装包版本和 OpenClaw upstream 版本不是一回事
-   `v1.0.12` 是模板安装包版本，`2026.4.24` 是它验证过的 OpenClaw runtime 基线。
+   `v1.0.13` 是模板安装包版本，`2026.5.2` 是它验证过的 OpenClaw runtime 基线。
 
 2. 不要因为 npm 上有更新就自动越过基线
-   如果模板的插件、memory-lancedb-pro 补丁、飞书链路和 gateway 修复都按 `2026.4.24` 验证，就应该先跟着安装包基线走。要升到更高版本，先按 [CLI 与 Gateway 版本统一](./03-CLI与Gateway版本统一.md) 和 [升级流程](../04-运维/02-升级流程.md) 做兼容性评估。
+   如果模板的插件、memory-lancedb-pro 补丁、飞书链路和 gateway 修复都按 `2026.5.2` 验证，就应该先跟着安装包基线走。作者端已验证 `2026.5.7`，但买家端要等新版安装包和 `latest.json` 同步后再跟进。要升到更高版本，先按 [CLI 与 Gateway 版本统一](./03-CLI与Gateway版本统一.md) 和 [升级流程](../04-运维/02-升级流程.md) 做兼容性评估。
 
 ---
 

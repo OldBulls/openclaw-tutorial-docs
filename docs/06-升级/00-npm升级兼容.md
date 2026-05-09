@@ -3,14 +3,14 @@ title: 06-升级 · 00 npm 升级兼容
 ---
 
 > 预计阅读：12 分钟
-> 适用版本：OpenClaw 2026.4.24 稳定基线 · 最后审核：2026-05-02
+> 适用版本：公开稳定包 OpenClaw 2026.5.2；作者端已验证 2026.5.7 · 最后审核：2026-05-09
 > 本章回答：**升级 OpenClaw 之后为什么总出毛病，以及怎么把升级做成流水线**
 
 ---
 
 ## 升级为什么特别容易崩
 
-先定边界：如果你使用的是带安装器和本地补丁的模板，默认跟随模板基线，而不是直接追 `openclaw@latest`。当前稳定基线是 `2026.4.24`；更高版本需要先确认飞书链路、memory-lancedb-pro、本地补丁、gateway 服务脚本和买家更新链都兼容。
+先定边界：如果你使用的是带安装器和本地补丁的模板，默认跟随模板基线，而不是直接追 `openclaw@latest`。当前公开稳定安装包基线是 `2026.5.2`；作者端已通过蓝绿流程验证 `2026.5.7`，但买家端是否切换到 5.7 仍要等新版安装包和 `latest.json` 同步。
 
 OpenClaw 在快速迭代期。每次 `npm install -g openclaw` 可能带来：
 
@@ -91,7 +91,7 @@ openclaw --version > /tmp/openclaw-version-before.txt
 ### 步骤 2：升级
 
 ```bash
-npm install -g openclaw@2026.4.24
+npm install -g openclaw@2026.5.2
 openclaw --version
 ```
 
@@ -212,7 +212,7 @@ done
 | 每月一次 | 大多数个人 / 小团队 |
 | 每季度一次 | 生产环境稳定优先 |
 
-**作者自己的节奏**：新版出来后**观望 3-5 天**（看 GitHub Issues 有没有明显炸），然后升，升完立刻跑 hotfix + 冒烟。
+**作者自己的节奏**：新版出来后**观望 3-5 天**（看 GitHub Issues 有没有明显炸），然后走蓝绿升级，升完立刻跑 hotfix、插件 patch 校验和冒烟。`2026.5.7` 已验证的额外点是：`memory-lancedb-pro` 要补 `dist/index.js` 编译入口，`openclaw-lark` 升到 `2026.5.7` 后仍复用已验证的本地 patch payload。
 
 ---
 

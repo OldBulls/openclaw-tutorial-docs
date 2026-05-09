@@ -3,7 +3,7 @@ title: 06-升级 · 03 CLI 与 Gateway 版本统一
 ---
 
 > 预计阅读：12 分钟
-> 适用版本：OpenClaw 2026.4.24 稳定基线，尤其适合自己装过多份 OpenClaw 的环境
+> 适用版本：公开稳定包 OpenClaw 2026.5.2；作者端已验证 2026.5.7，尤其适合自己装过多份 OpenClaw 的环境
 > 前置：[04-运维/02-升级流程](../04-运维/02-升级流程.md) / [05-排障/01-诊断流程](../05-排障/01-诊断流程.md)
 > 本章回答：**为什么 `openclaw config validate` 和实际 gateway 提示会互相打脸？为什么明明配了一个键，CLI 说不认识，gateway 却又要求你设置它？**
 
@@ -185,10 +185,10 @@ bash ~/.openclaw/scripts/runtime-status-report.sh
 - 修复 macOS launchd 或 Linux systemd 里的 gateway 启动路径
 - 重启 gateway 并重新做健康检查
 
-在 `v1.0.10` 之后，如果全局 `openclaw` 命令或 `dist/index.js` 已经不存在，修复脚本会优先按 `RUNTIME_BASELINE.json` 里的 OpenClaw 基线补装，再继续修服务路径。当前稳定基线是：
+在 `v1.0.10` 之后，如果全局 `openclaw` 命令或 `dist/index.js` 已经不存在，修复脚本会优先按 `RUNTIME_BASELINE.json` 里的 OpenClaw 基线补装，再继续修服务路径。当前公开稳定包基线是：
 
 ```text
-openclaw_core = 2026.4.24
+openclaw_core = 2026.5.2
 ```
 
 也就是说，修复脚本的目标不是“装 npm 上最新的 OpenClaw”，而是先恢复到模板验证过的 runtime。
